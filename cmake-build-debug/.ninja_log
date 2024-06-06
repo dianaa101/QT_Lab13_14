@@ -1,0 +1,17 @@
+# ninja log v5
+54	333	7393338874511186	QT_Lab13_14_autogen/timestamp	587d51e49192726
+54	333	7393338874511186	QT_Lab13_14_autogen/mocs_compilation.cpp	587d51e49192726
+337	4793	7393338919037929	CMakeFiles/QT_Lab13_14.dir/domain.cpp.obj	69fdf61c2658226a
+54	333	7393338874511186	C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/cmake-build-debug/QT_Lab13_14_autogen/mocs_compilation.cpp	587d51e49192726
+54	333	7393338874511186	C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/cmake-build-debug/QT_Lab13_14_autogen/timestamp	587d51e49192726
+1361	7049	7392970856142937	CMakeFiles/QT_Lab13_14.dir/QT_Lab13_14_autogen/mocs_compilation.cpp.obj	c56edd8ddec1a4ee
+1434	7891	7392970910239234	CMakeFiles/QT_Lab13_14.dir/repo_file.cpp.obj	efcd4bcba33e3bda
+1427	14261	7392970974751850	CMakeFiles/QT_Lab13_14.dir/notificare.cpp.obj	df4fa8f0730e47f0
+7897	15134	7392970983382306	CMakeFiles/QT_Lab13_14.dir/repo.cpp.obj	58d0143bfa8a5c93
+14262	16179	7392970994001435	CMakeFiles/QT_Lab13_14.dir/validator.cpp.obj	319e7732f1575189
+9932	16713	7392970999335579	CMakeFiles/QT_Lab13_14.dir/ui.cpp.obj	7d22d4897f6696b8
+7051	16726	7392970999385543	CMakeFiles/QT_Lab13_14.dir/service.cpp.obj	b243f146cb0be502
+297	14409	7393008114584183	CMakeFiles/QT_Lab13_14.dir/main.cpp.obj	ceb007a289bf5cac
+313	7696	7393315408895135	CMakeFiles/QT_Lab13_14.dir/QTLab13_14.cpp.obj	b1f70785dfd1a655
+4794	6697	7393338933250138	QT_Lab13_14.exe	2dd788eecb0af5c5
+3	1013	7393550553740163	build.ninja	bd5687d46e45a86d

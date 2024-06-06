@@ -1,0 +1,5 @@
+C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/cmake-build-debug/CMakeFiles/QT_Lab13_14.dir
+C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/cmake-build-debug/CMakeFiles/QT_Lab13_14_autogen_timestamp_deps.dir
+C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/cmake-build-debug/CMakeFiles/QT_Lab13_14_autogen.dir
