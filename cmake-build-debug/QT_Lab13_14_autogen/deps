@@ -1,5 +1,7 @@
 QT_Lab13_14_autogen/timestamp: \
 	C:/Users/Dell/Desktop/Anul\ 1\ CS/Semestrul\ 2/OOP/QT\ Lab13-14/CMakeLists.txt \
+	C:/Users/Dell/Desktop/Anul\ 1\ CS/Semestrul\ 2/OOP/QT\ Lab13-14/MyListModel.h \
+	C:/Users/Dell/Desktop/Anul\ 1\ CS/Semestrul\ 2/OOP/QT\ Lab13-14/MyTableModel.h \
 	C:/Users/Dell/Desktop/Anul\ 1\ CS/Semestrul\ 2/OOP/QT\ Lab13-14/QTLab13_14.cpp \
 	C:/Users/Dell/Desktop/Anul\ 1\ CS/Semestrul\ 2/OOP/QT\ Lab13-14/QTLab13_14.h \
 	C:/Users/Dell/Desktop/Anul\ 1\ CS/Semestrul\ 2/OOP/QT\ Lab13-14/cmake-build-debug/CMakeFiles/3.27.8/CMakeCCompiler.cmake \
@@ -12,6 +14,7 @@ QT_Lab13_14_autogen/timestamp: \
 	C:/Users/Dell/Desktop/Anul\ 1\ CS/Semestrul\ 2/OOP/QT\ Lab13-14/main.cpp \
 	C:/Users/Dell/Desktop/Anul\ 1\ CS/Semestrul\ 2/OOP/QT\ Lab13-14/notificare.cpp \
 	C:/Users/Dell/Desktop/Anul\ 1\ CS/Semestrul\ 2/OOP/QT\ Lab13-14/notificare.h \
+	C:/Users/Dell/Desktop/Anul\ 1\ CS/Semestrul\ 2/OOP/QT\ Lab13-14/observer.h \
 	C:/Users/Dell/Desktop/Anul\ 1\ CS/Semestrul\ 2/OOP/QT\ Lab13-14/repo.cpp \
 	C:/Users/Dell/Desktop/Anul\ 1\ CS/Semestrul\ 2/OOP/QT\ Lab13-14/repo.h \
 	C:/Users/Dell/Desktop/Anul\ 1\ CS/Semestrul\ 2/OOP/QT\ Lab13-14/repo_file.cpp \

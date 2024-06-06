@@ -48,25 +48,28 @@ void AppGUI::initGUI() {
 
     auto s = srv.raport();
 
-    table->resizeColumnsToContents();
-    table->setMinimumSize(500, 200);
-    lista_layout->addWidget(table, 2);
+    table_view->resizeColumnsToContents();
+    table_view->setMinimumSize(440, 200);
+    lista_layout->addWidget(table_view, 2);
 
-    lista_layout->addSpacing(20);
-    QLabel* infoLabel = new QLabel("Tenants list");
-    infoLabel->setAlignment(Qt::AlignCenter);
-    infoLabel->setFont(boldFont);
 
-    lista_layout->addWidget(infoLabel, 1);
+    lista_layout->addWidget(btn_undo);
 
-    //size the list like the table
-    list->setMinimumSize(500, 200);
-    lista_layout->addWidget(list, 2);
+    lista_layout->addWidget(open_notificare);
+
+    lista_layout->addWidget(open_notificare_readonly);
+
 
     // layout operatii
     QVBoxLayout* operatiiLayout = new QVBoxLayout; //layout dreapta
 
     mainLayout->addLayout(operatiiLayout, 1);
+
+    QLabel* operatiiLabel = new QLabel("Operatii tenants");
+    operatiiLabel->setAlignment(Qt::AlignCenter);
+    operatiiLabel->setFont(boldFont);
+
+    operatiiLayout->addWidget(operatiiLabel, 1);
 
     QFormLayout* formLayout = new QFormLayout;
     operatiiLayout->addLayout(formLayout);
@@ -84,9 +87,45 @@ void AppGUI::initGUI() {
     actiuniLayout->addWidget(btn_update);
     actiuniLayout->addWidget(btn_find);
 
+    operatiiLayout->addSpacing(20);
+
+    QLabel* operatiiNotificareLabel = new QLabel("Adauga la notificari");
+    operatiiNotificareLabel->setAlignment(Qt::AlignCenter);
+    operatiiNotificareLabel->setFont(boldFont);
+
+    operatiiLayout->addWidget(operatiiNotificareLabel, 1);
+
+    QFormLayout* genereazaLayout = new QFormLayout;
+    operatiiLayout->addLayout(genereazaLayout);
+
+    txtNotificareNumber->setStyleSheet("QLineEdit{font-size: 16px;font-weight: 500;border: 1px solid transparent;border-radius: 4px;padding: 4px 6px;}");
+    txtNotificareName->setStyleSheet("QLineEdit{font-size: 16px;font-weight: 500;border: 1px solid transparent;border-radius: 4px;padding: 4px 6px;}");
+    genereazaLayout->addRow(new QLabel{ "Number: " }, txtNotificareNumber);
+    genereazaLayout->addRow(new QLabel{ "Name: " }, txtNotificareName);
+
+
+    QHBoxLayout* actiuniNotificareLayout = new QHBoxLayout;
+    operatiiLayout->addLayout(actiuniNotificareLayout);
+
+    actiuniNotificareLayout->addWidget(add_notificare);
+
+    QLabel* exportaNotificareLabel = new QLabel("Exporta notificare");
+    exportaNotificareLabel->setAlignment(Qt::AlignCenter);
+    exportaNotificareLabel->setFont(boldFont);
+    operatiiLayout->addWidget(exportaNotificareLabel);
+    QFormLayout* exportLayout = new QFormLayout;
+    operatiiLayout->addLayout(exportLayout);
+
+    txtNotificareFile->setStyleSheet("QLineEdit{font-size: 16px;font-weight: 500;border: 1px solid transparent;border-radius: 4px;padding: 4px 6px;}");
+    exportLayout->addRow(new QLabel{ "Nume fisier: " }, txtNotificareFile);
+
+    operatiiLayout->addWidget(export_notificare);
+    operatiiLayout->addSpacing(20);
+
     QVBoxLayout* sortLayout = new QVBoxLayout;
     operatiiLayout->addLayout(sortLayout);
     sortLayout->addSpacing(20);
+
 
     QLabel* sortLabel = new QLabel("Sorting type");
     sortLabel->setAlignment(Qt::AlignCenter);
@@ -144,6 +183,7 @@ void AppGUI::initGUI() {
 
 }
 
+/*
 void AppGUI::notificareGUI() {
     notificare->setWindowTitle("Setare notificare");
 
@@ -218,7 +258,67 @@ void AppGUI::notificareGUI() {
 
     notificareOperatiiLayout->addWidget(btn_exit_notificari);
 }
+*/
 
+void NotificareGUI::initNotificareGUI() {
+    setWindowTitle("Setare notificare");
+    QPalette palette_notificare = QPalette();
+    QLinearGradient gradient(this->width() / 2, 0, this->width(), 0);
+    gradient.setColorAt(0, QColor("#BB8FCE"));
+    gradient.setColorAt(1, QColor("#AF7AC5"));
+
+    palette_notificare.setBrush(QPalette::Window, QBrush(gradient));
+    setAutoFillBackground(true);
+
+    setPalette(palette_notificare);
+    setFont(QFont("Helvetica", 12, 10, false));
+
+    QHBoxLayout* Layout = new QHBoxLayout;
+    setLayout(Layout);
+
+    QVBoxLayout* notificareLayout = new QVBoxLayout;
+    Layout->addLayout(notificareLayout);
+
+    QLabel* notificareLabel= new QLabel("Notificare");
+    notificareLabel->setAlignment(Qt::AlignCenter);
+
+    QFont font = QFont("Helvetica", 12, 10, false);
+    QFont boldFont = font;
+    boldFont.setBold(true);
+    notificareLabel->setFont(boldFont);
+
+    notificareLayout->addWidget(notificareLabel);
+
+    notificareLayout->addWidget(empty_notificare);
+    notificareLayout->addSpacing(20);
+
+    QLabel *genereazaNotificareLabel = new QLabel("Genereaza notificare");
+    genereazaNotificareLabel->setAlignment(Qt::AlignCenter);
+    genereazaNotificareLabel->setFont(boldFont);
+    notificareLayout->addWidget(genereazaNotificareLabel);
+    QFormLayout* genereazaNotificareLayout = new QFormLayout;
+    notificareLayout->addLayout(genereazaNotificareLayout);
+
+    txtNotificareNumar->setStyleSheet("QLineEdit{font-size: 16px;font-weight: 500;border: 1px solid transparent;border-radius: 4px;padding: 4px 6px;}");
+    genereazaNotificareLayout->addRow(new QLabel{ "Numar tenants: " }, txtNotificareNumar);
+
+    notificareLayout->addWidget(generate_notificare);
+    notificareLayout->addSpacing(20);
+
+    QVBoxLayout* notificareOperatiiLayout = new QVBoxLayout;
+    Layout->addLayout(notificareOperatiiLayout);
+
+    notificareOperatiiLayout->addWidget(lista_notificare);
+
+    notificareOperatiiLayout->addWidget(exit);
+}
+
+void NotificareGUI::reloadList(const vector<Tentant> &tentants) {
+    model = new MyListModel{ tentants};
+    lista_notificare->setModel(model);
+}
+
+/*
 void AppGUI::load_table(const vector<Tentant>& tentant) {
     this->table->clearContents();
     this->table->setColumnCount(5);
@@ -244,7 +344,16 @@ void AppGUI::load_table(const vector<Tentant>& tentant) {
         nr_linie++;
     }
 }
+*/
 
+void AppGUI::load_table(const vector<Tentant> &tentant) {
+    model = new MyTableModel{ tentant };
+    table_view->setModel(model);
+    table_view->setSelectionMode(QAbstractItemView::ExtendedSelection);
+
+}
+
+/*
 void AppGUI::load_list_from_table(const vector<Tentant>& tentants) {
     list->clear();
     int index = 0;
@@ -260,6 +369,7 @@ void AppGUI::load_list(const vector<Tentant>& tentants) {
         lista_notificari->addItem(QString::fromStdString(tentant.get_number() + " - name " + tentant.get_name()));
     }
 }
+*/
 
 void AppGUI::clearNotificareTextBox() {
     txtNotificareNumber->clear();
@@ -312,7 +422,45 @@ void AppGUI::uiNotificareAdd() {
         }
     }
     clearNotificareTextBox();
-    load_list(srv.get_all_notifications());
+    // load_list(srv.get_all_notifications());
+    notificare->notify();
+}
+
+void NotificareGUI::connectNotificareSignals() {
+    QObject::connect(exit, &QPushButton::clicked, [&]() {
+        this->notify();
+        this->close();
+    });
+
+    QObject::connect(empty_notificare, &QPushButton::clicked, [&]() {
+        srv.empty_notificare_srv();
+        reloadList(srv.get_all_notifications());
+        srv.notify();
+    });
+
+    QObject::connect(generate_notificare, &QPushButton::clicked, [&]() {
+        string numar = txtNotificareNumar->text().toStdString();
+        int numar_corect;
+        QMessageBox msg;
+
+        try {
+            numar_corect = stoi(numar);
+        }
+        catch (std::invalid_argument& mesaj) {
+            msg.warning(this, "Warning", "Input invalid!");
+            txtNotificareNumar->clear();
+            return;
+        }
+
+        try {
+            srv.generate_notificare_srv(numar_corect);
+        }
+        catch (NotificareException& mesaj) {
+            msg.warning(this, "Warning", QString::fromStdString(mesaj.get_mesaj()));
+        }
+        srv.notify();
+        reloadList(srv.get_all_notifications());
+    });
 }
 
 void AppGUI::clearTextBox() {
@@ -364,7 +512,6 @@ void AppGUI::uiAdd() {
 
     clearTextBox();
     load_table(srv.get_all());
-    load_list_from_table(srv.get_all());
 }
 
 void AppGUI::uiDelete() {
@@ -397,7 +544,6 @@ void AppGUI::uiDelete() {
 
     clearTextBox();
     load_table(srv.get_all());
-    load_list_from_table(srv.get_all());
 }
 
 void AppGUI::uiUpdate() {
@@ -442,7 +588,6 @@ void AppGUI::uiUpdate() {
 
     clearTextBox();
     load_table(srv.get_all());
-    load_list_from_table(srv.get_all());
 }
 
 void AppGUI::uiFind() {
@@ -471,7 +616,6 @@ void AppGUI::uiFind() {
 
         clearTextBox();
         load_table(tentants);
-        load_list_from_table(tentants);
     }
     catch (RepoException& mesaj) {
         msgBox.warning(this, "Warning", QString::fromStdString(mesaj.get_mesaj()));
@@ -486,19 +630,16 @@ void AppGUI::uiFind() {
 void AppGUI::sortName() {
     vector<Tentant> tentants = srv.sort_name();
     load_table(tentants);
-    load_list_from_table(tentants);
 }
 
 void AppGUI::sortSurface() {
     vector<Tentant> tentants = srv.sort_surface();
     load_table(tentants);
-    load_list_from_table(tentants);
 }
 
 void AppGUI::sortTypeSurface() {
     vector<Tentant> tentants = srv.sort_type_surface();
     load_table(tentants);
-    load_list_from_table(tentants);
 }
 
 void AppGUI::uiFilterNumber() {
@@ -524,7 +665,6 @@ void AppGUI::uiFilterNumber() {
 
     txtfilter->clear();
     load_table(tentants);
-    load_list_from_table(tentants);
 }
 
 void AppGUI::uiFilterType() {
@@ -538,7 +678,6 @@ void AppGUI::uiFilterType() {
 
     txtfilter->clear();
     load_table(tentants);
-    load_list_from_table(tentants);
 }
 
 void AppGUI::connectSignals() {
@@ -556,7 +695,7 @@ void AppGUI::connectSignals() {
 
     QObject::connect(load, &QPushButton::clicked, [&]() {
         this->load_table(srv.get_all());
-        this->load_list_from_table(srv.get_all());
+       // this->load_list_from_table(srv.get_all());
     });
 
     for (const auto& btn : vector_btn) {
@@ -592,9 +731,23 @@ void AppGUI::connectSignals() {
         }
 
         load_table(srv.get_all());
-        load_list_from_table(srv.get_all());
     });
 
+    QObject::connect(open_notificare, &QPushButton::clicked, [&]() {
+        NotificareGUI* notificare_n = new NotificareGUI(srv);
+        notificare_n->initNotificareGUI();
+        notificare_n->connectNotificareSignals();
+        notificare_n->show();
+        notificare_n->reloadList(srv.get_all_notifications());
+        notificare_n->addObserver(notificare_n);
+    });
+
+    QObject::connect(open_notificare_readonly, &QPushButton::clicked, [&]() {
+        NotificareReadOnlyGUI* notificareRO = new NotificareReadOnlyGUI{ srv };
+        notificareRO->show();
+    });
+
+    /*
     QObject::connect(btn_notificare, &QPushButton::clicked, [&]() {
         notificare->show();
     });
@@ -631,10 +784,36 @@ void AppGUI::connectSignals() {
         load_list(srv.get_all_notifications());
     });
 
-    QObject::connect(btn_add_notificare, &QPushButton::clicked, this, &AppGUI::uiNotificareAdd);
-    QObject::connect(btn_export_notificari, &QPushButton::clicked, [&]() {
+     */
+
+    QObject::connect(add_notificare, &QPushButton::clicked, this, &AppGUI::uiNotificareAdd);
+    QObject::connect(export_notificare, &QPushButton::clicked, [&]() {
         string nume_fisier = txtNotificareFile->text().toStdString();
-        srv.export_notificare_srv(nume_fisier);
-        txtNotificareFile->clear();
+        QMessageBox msg;
+
+        try {
+            srv.export_notificare_srv(nume_fisier);
+        }
+        catch (NotificareException& mesaj) {
+            msg.warning(nullptr, "Warning", QString::fromStdString(mesaj.get_mesaj()));
+        }
+    });
+
+    QObject::connect(table_view, &QTableView::pressed, [&]() {
+        auto sel = table_view->selectionModel();
+        if (!sel->selectedRows().isEmpty()) {
+            QModelIndex index = sel->selectedRows().at(0);
+            QAbstractItemModel* model = table_view->model();
+
+            QVariant numberVariant = model->data(model->index(index.row(), 0));
+            QVariant nameVariant = model->data(model->index(index.row(), 1));
+            QVariant surfaceVariant = model->data(model->index(index.row(), 2));
+            QVariant typeVariant = model->data(model->index(index.row(), 3));
+
+            txtNumber->setText(numberVariant.toString());
+            txtName->setText(nameVariant.toString());
+            txtSurface->setText(surfaceVariant.toString());
+            txtType->setText(typeVariant.toString());
+        }
     });
 }

@@ -18,6 +18,10 @@
 #include <QIcon>
 #include <QGraphicsDropShadowEffect>
 
+#include <QPaintEvent>
+#include <QPainter>
+#include <QRadioButton>
+
 #include "service.h"
 #include "observer.h"
 #include "MyListModel.h"
@@ -37,7 +41,7 @@ private:
     QPushButton* exit = new QPushButton{ "&Exit" };
 
     //textboxuri
-    QLineEdit* txtNotificareNumber = new QLineEdit;
+    QLineEdit* txtNotificareNumar = new QLineEdit;
 
     //lista
     QListView* lista_notificare = new QListView;
@@ -49,7 +53,7 @@ public:
         srv.addObserver(this);
     };
 
-    void initNotificare();
+    void initNotificareGUI();
     void connectNotificareSignals();
     void reloadList(const vector<Tentant>& tentants);
     void update() override {
@@ -154,12 +158,21 @@ public:
         connectSignals();
     }
 private:
+    MyTableModel* model = nullptr;
+    QTableView* table_view = new QTableView;
+
     Service& srv;
+    NotificareGUI* notificare;
+    QTableWidget* table_main = new QTableWidget;
+    QVBoxLayout* lista_layout = new QVBoxLayout;
+
+    /*
     QWidget* notificare = new QWidget;
     QTableWidget* table = new QTableWidget;
     QListWidget* list = new QListWidget;
     QListWidget* lista_notificari = new QListWidget;
     QVBoxLayout* lista_layout = new QVBoxLayout;
+*/
 
     // butoane
     vector<QPushButton*> vector_btn;
@@ -173,17 +186,28 @@ private:
     QPushButton* sort_surface = new QPushButton{ "Sort by surface" };
     QPushButton* sort_type_surface = new QPushButton{ "Sort by type and surface" };
     QPushButton* filter_number = new QPushButton{ "Filter by number" };
-    QPushButton* filter_type = new QPushButton{ "Filter by name" };
+    QPushButton* filter_type = new QPushButton{ "Filter by type" };
     QLineEdit* txtfilter = new QLineEdit;
     QPushButton* exit = new QPushButton{ "Exit" };
     QPushButton* load = new QPushButton{ "Load" };
 
+
+    /*
     // butoane lista notificari
     QPushButton* btn_add_notificare = new QPushButton{ "Add to the notifications list" };
     QPushButton* btn_delete_notificare = new QPushButton{ "Delete notifications list" };
     QPushButton* btn_generate_notificari = new QPushButton{ "Generate notifications" };
     QPushButton* btn_export_notificari = new QPushButton{ "Export notifications" };
     QPushButton* btn_exit_notificari = new QPushButton{ "Exit" };
+*/
+    //Butoane pt contract
+    QPushButton* open_notificare = new QPushButton{ "Deschide notificare" };
+    QPushButton* open_notificare_readonly = new QPushButton{ "Deschide notificare readonly" };
+    QPushButton* add_notificare = new QPushButton{ "&Adauga la notificari" };
+    QPushButton* export_notificare = new QPushButton{ "&Exporta notificare" };
+    QLineEdit* txtNotificareNumber = new QLineEdit;
+    QLineEdit* txtNotificareName = new QLineEdit;
+    QLineEdit* txtNotificareFile = new QLineEdit;
 
     // layout
     QLineEdit* txtNumber = new QLineEdit;
@@ -191,17 +215,18 @@ private:
     QLineEdit* txtSurface = new QLineEdit;
     QLineEdit* txtType = new QLineEdit;
 
+    /*
     // notificari
     QLineEdit* txtNotificareNumar = new QLineEdit;
     QLineEdit* txtNotificareFile = new QLineEdit;
     QLineEdit* txtNotificareNumber = new QLineEdit;
     QLineEdit* txtNotificareName = new QLineEdit;
+*/
 
-
-    void load_list(const vector<Tentant>& tentants);
+   //  void load_list(const vector<Tentant>& tentants);
     void load_table(const vector<Tentant>& tentants);
-    void load_list_from_table(const vector<Tentant>& tentants);
-    void notificareGUI();
+   //  void load_list_from_table(const vector<Tentant>& tentants);
+   //  void notificareGUI();
     void connectSignals();
 
     void initGUI();
@@ -220,7 +245,6 @@ private:
     void sortTypeSurface();
 
 
-};
 };
 
 #endif // !QTLAB_H_

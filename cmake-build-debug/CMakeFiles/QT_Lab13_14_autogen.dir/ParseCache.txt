@@ -16,5 +16,8 @@ C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/main.cpp
 C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/notificare.cpp
 C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/repo.cpp
 C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/service.cpp
+C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/observer.h
 C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/ui.cpp
+C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/MyListModel.h
 C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/validator.cpp
+C:/Users/Dell/Desktop/Anul 1 CS/Semestrul 2/OOP/QT Lab13-14/MyTableModel.h

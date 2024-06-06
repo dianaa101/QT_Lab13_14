@@ -1,1 +1,4 @@
 1,diana,50,bought
+2,maria,100,rented
+3,mihaela,60,bought
+4,stefan,200,bought
